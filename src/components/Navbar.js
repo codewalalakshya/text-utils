@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default function Navbar(props) {
       return ( 
       
-         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+         <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} sticky-top`}>
         <div className="container-fluid">
 
           <a className="navbar-brand d-flex align-items-center" href="/">
@@ -68,9 +68,9 @@ export default function Navbar(props) {
               </button> */}
 
             {/* </form> */}
-             <div class="form-check form-switch" text="light">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                <label class="form-check-label" for="flexSwitchCheckDefault">Enable Dark Mode</label>
+             <div className={`form-check form-switch  text-${props.mode==='light'?'dark':'light'} `}>
+                <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                <label className="form-check-label "  htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
               </div>
 
           </div>
@@ -82,11 +82,13 @@ Navbar.propTypes = {
   title: PropTypes.string,
   aboutText: PropTypes.string,
   logo: PropTypes.string,
-  logoAlt: PropTypes.string
+  logoAlt: PropTypes.string,
+  togglemode: PropTypes.func  
 };
 Navbar.defaultProps = {
   title: 'Set title here',
   aboutText: 'About text here',
   logo: '/logo.png',
-  logoAlt: 'App logo'
+  logoAlt: 'App logo',
+  togglemode: () => {console.log("Toggle mode") }
 };  
