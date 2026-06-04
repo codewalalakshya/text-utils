@@ -1,0 +1,18 @@
+.dark-accordion .accordion-button::after {
+  filter: invert(1);
+}
+
+.dark-accordion .accordion-button {
+  background-color: #20282e !important;
+  color: white !important;
+}
+
+.dark-accordion .accordion-button:not(.collapsed) {
+  background-color: #20282e !important;
+  color: white !important;
+}
+
+.dark-accordion .accordion-button:focus {
+  box-shadow: none !important;
+  border-color: white !important;
+}
